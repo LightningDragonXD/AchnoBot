@@ -6,6 +6,7 @@ var bot = new Discord.Client({
 
 bot.on('ready', function(event){
     console.log('Logged in as %s - %s\n', bot.username, bot.id);
+    bot.connect();
 });
 
 bot.on('message', function(user, userID, channelID, message, event){
