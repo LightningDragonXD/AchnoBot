@@ -1,10 +1,7 @@
 var Discord = require('discord.io');
-
-var auth = require('./auth.json');
-
 var bot = new Discord.Client({
-    token: process.env.TOKEN,
-    autorun: true
+    autorun: true,
+    token: process.env.TOKEN
 });
 
 bot.on('ready', function(event){
