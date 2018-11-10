@@ -3,7 +3,7 @@ var Discord = require('discord.io');
 var auth = require('./auth.json');
 
 var bot = new Discord.Client({
-    token: auth.token,
+    token: process.env.TOKEN,
     autorun: true
 });
 
