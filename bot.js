@@ -34,6 +34,7 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
+			}
 			
 		}else if(splitHelp[0] === (prefix+"help")){
 			if(splitHelp.length === 2){
