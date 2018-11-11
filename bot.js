@@ -54,11 +54,11 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
-			    }			
+			    	}else {
+        				sendError(message, "Commande inconnue.");	
+    				}					
 		    }
 	    }
-    }else {
-        sendError(message, "Commande inconnue.");	
     }
 }
 
