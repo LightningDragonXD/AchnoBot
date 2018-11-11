@@ -1,8 +1,6 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-var ytdl = require('ytdl-core');
-const queue = new Map();
-var servers = {};
+
 const prefix = "?";
 
 bot.on('ready', function(){
@@ -130,46 +128,37 @@ function punch(message){
 		}
 	}
 }
-function play(connection, message){
-	var server = servers[message.guild.id];	
-	
-	server.dispatcher = connection.playStream(ytdl(server.queue[0], [filter: "audioonly"]));
-	server.queue.shift();
-	server.dispatcher.on("end", function(){
-		if(server.queue[0]) play(connection, message);
-		
-		else connection.disconnect();
-	});
-									 
-}
-function musique(message){
+function kiss(message){
+	var KISS = ["https://i.imgur.com/CJ4qnQ7.gif","https://i.imgur.com/OnabSmr.gif","https://i.imgur.com/dqd4b3w.gif","https://i.imgur.com/LhTCe1J.gif","https://i.imgur.com/OAD1UH7.gif"];
+	var R_KISS = Math.floor(Math.random()*KISS.length);
 	if(message.content[0] === prefix){
-		let splitmusic = message.content.split(" ");
-		if(splitmusic[0] === (prefix+"play")){
-			if(!splitmusic.length === 1){
-				message.channel.reply("il manque un lien youtube");
-			}else if(!message.member.voiceChannel){
-					message.channel.reply(":x: Tu dois être dans un salon vocal !");
-			}else if(!servers[message.guild.id]) servers[message.guild.id] = {queue: []};
-			var server = servers[message.guild.id];
-			server.queue.push(splitmusic[1]);
-			if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection){
-				play(connection, message)	
-			});
-			
-		}else if(splitmusic[0] === (prefix+"skip")){
-			 if(!message.member.voiceChannel){
-				 message.channel.reply(":x: Tu dois être dans un salon vocal");
-				 return;
-			 }
-			var server = servers[message.guild.id];
-			if(server.dispatcher) server.dispatcher.end();
-			
-		}else if(!message.member.voiceChannel){
-			 return message.channel.reply(":x: Tu dois être dans un salon vocal");
-			message.member.voiceChannel.leave();
-		}else {
-			sendError(message, "Commande inconnue.");	
+		let splitfun = message.content.split(" ");
+		if(splitfun[0] === (prefix+"kiss")){
+			 if(splitfun.length === 1){
+				 var kiss = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription("AchnoBot t'embrasse :kissing_heart:")
+					.setImage(KISS[R_KISS])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(kiss);
+
+			}else if(splitfun.length === 2){
+				if(message.guild.member(message.mentions.users.first())){
+				 var kiss = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" embrassse "+message.guild.member(message.mentions.users.first())+" :kissing_heart:")
+					.setImage(KISS[R_KISS])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(kiss);
+				}
+    						
+			}else{
+				sendError(message, "Commande inconnue.");	
+			}
 		}
 	}
 }
@@ -179,7 +168,7 @@ bot.on('message', message => {
 	helpCommandes(message);
 	hug(message);
 	punch(message);
-	musique(message);
+
 	
 });
 
