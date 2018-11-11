@@ -168,6 +168,7 @@ bot.on('message', message => {
 	helpCommandes(message);
 	hug(message);
 	punch(message);
+	kiss(message);
 
 	
 });
