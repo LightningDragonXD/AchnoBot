@@ -27,7 +27,7 @@ function sendError(message, description){
 function helpCommandes(message){
 	if(message.content[0] === prefix){
 		let splitHelp = message.content.split(" ");
-		if(splitHelp[0] === prefix+"help"){
+		if(splitHelp[0] === (prefix+"help")){
 			if(splitHelp.length === 1){
 				var help = new Discord.RichEmbed()
 				.setTitle('Liste des Commandes')
