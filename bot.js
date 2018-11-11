@@ -7,10 +7,10 @@ bot.on('ready', function(){
 });
 
 bot.on('message', message => {
-	if(message.content === prefix+"ping"){
+	/*if(message.content === prefix+"ping"){
 		message.reply("pong");
-	}
-	helpCommandes(message);
+	}*/
+	//helpCommandes(message);
 	
 	if(message.content[0] === prefix){
 		let splitHelp = message.content.split(" ");
