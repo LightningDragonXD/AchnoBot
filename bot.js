@@ -47,7 +47,7 @@ function helpCommandes(message){
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
 					
-				}else if(splitHelp[1] === "punch"){
+			}else if(splitHelp[1] === "punch"){
 				var help = new Discord.RichEmbed()
 				.setTitle('Punch')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
@@ -55,8 +55,8 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
-				}
 			}
+			
 		}
 	}else {
 		sendError(message, "Commande inconnue.");	
@@ -108,8 +108,8 @@ function punch(message){
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
 				 
-		}else if(splitfun.length === 2){
-			if(message.guild.member(message.mentions.users.first())){
+			}else if(splitfun.length === 2){
+				if(message.guild.member(message.mentions.users.first())){
 				 var punch = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription(message.author.toString()+" donne un coup à "+message.guild.member(message.mentions.users.first())+"! :punch:")
@@ -118,7 +118,7 @@ function punch(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
-				
+				}
 			}	
 		}
 	}else{
