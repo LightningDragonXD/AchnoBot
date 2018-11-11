@@ -1,6 +1,6 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-const prefix = "<A>";
+const prefix = ":";
 
 bot.on('ready', function(){
 	bot.user.setActivity(prefix+'help', {type: 'WATCHING'}).catch(console.error);
@@ -12,7 +12,7 @@ bot.on('message', message => {
 	}*/
 	//helpCommandes(message);
 	
-	if(message.content === prefix){
+	if(message.content[0] === prefix){
 		let splitHelp = message.content.split(" ");
 		if(splitHelp[0] === (prefix+"help")){
 			if(splitHelp.length === 1){
