@@ -203,6 +203,8 @@ function rename(message){
 				if(membre){
 					membre.user.setUsername(splitfun[2]);
 				}
+			}else{
+				sendError(message, "Commande inconnue.");
 			}
   		}
 	}
@@ -214,6 +216,7 @@ bot.on('message', message => {
 	punch(message);
 	kiss(message);
 	sad(message);
+	rename(message);
 	
 });
 
