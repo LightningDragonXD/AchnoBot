@@ -89,7 +89,10 @@ function funCommandes(message){
 					message.channel.sendEmbed(hug);
 			
 			}
-		}else if(splitfun[0] === (prefix+"punch")){
+		}else{
+			sendError(message, "Commande inconnu");		
+		}
+		if(splitfun[0] === (prefix+"punch")){
 			 if(splitfun.length === 1){
 				 var punch = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
