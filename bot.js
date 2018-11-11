@@ -25,7 +25,7 @@ function sendError(message, description){
 	message.channel.sendEmbed(erreur);
 }
 function helpCommandes(message){
-	if(message.content === prefix){
+	if(message.content[0] === prefix){
 		let splitHelp = message.content.split(" ");
 		if(splitHelp[0] === prefix+"help"){
 			if(splitHelp.length === 1){
