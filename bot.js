@@ -28,7 +28,7 @@ function helpCommandes(message){
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Pour afficher l\'aide d\'une commande particulière ajouter en plus le nom de la commande')
 				.addField('Prefix', prefix)
-				.addField('Commandes Fun','`hug`, `kiss`, `punch`, `botname`')
+				.addField('Commandes Fun','`hug`, `kiss`, `punch`, `botname`, `sad`')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
@@ -198,7 +198,7 @@ function sad(message){
 				if(message.guild.member(message.mentions.users.first())){
 				var sad = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" rend triste "+message.guild.member(message.mentions.users.first())+":cry:")
+					.setDescription(message.author.toString()+" est triste à cause de "+message.guild.member(message.mentions.users.first())+":cry:")
 					.setImage(SAD[R_SAD])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
