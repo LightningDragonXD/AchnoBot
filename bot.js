@@ -87,11 +87,9 @@ function funCommandes(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(hug);
-			}else{
-				sendError(message, "Commande inconnu");	
+			
 			}
-		}
-		if(splitfun[0] === (prefix+"punch")){
+		}else if(splitfun[0] === (prefix+"punch")){
 			 if(splitfun.length === 1){
 				 var punch = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
@@ -112,11 +110,11 @@ function funCommandes(message){
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
 				}
-			
-			}else{
-				sendError(message, "Commande inconnu");	
 			}	
+		}else{
+			sendError(message, "Commande inconnu");	
 		}
+	
 	}
 }
 
