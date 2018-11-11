@@ -35,7 +35,8 @@ function helpCommandes(message){
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
 			
-			
+			}else{
+				sendError(message, "Commande inconnue.");	
 			}else if(splitHelp.length === 2){
 				if(splitHelp[1] === "hug"){
 				var help = new Discord.RichEmbed()
@@ -45,7 +46,8 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
-					
+				}else{
+					sendError(message, "Commande inconnue.");	
 				}else if(splitHelp[1] === "punch"){
 				var help = new Discord.RichEmbed()
 				.setTitle('Punch')
@@ -58,6 +60,8 @@ function helpCommandes(message){
         				sendError(message, "Commande inconnue.");	
     				}					
 		    }
+	    }else{
+		  sendError(message, "Commande inconnue.");	
 	    }
     }
 }
@@ -77,6 +81,8 @@ function hug(message){
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(hug);
 				}
+			}else{
+				sendError(message, "Commande inconnue.");	
 			}else if(splitfun.length === 1){
 				 var hug = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
@@ -90,6 +96,8 @@ function hug(message){
 			}else{
         			sendError(message, "Commande inconnu");		
     			}	
+		}else{
+			sendError(message, "Commande inconnue.");	
 		}
 	}
 }
@@ -106,7 +114,8 @@ function punch(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
-				 
+			 }else{
+				 sendError(message, "Commande inconnue.");	
 			}else if(splitfun.length === 2){
 				if(message.guild.member(message.mentions.users.first())){
 				 var punch = new Discord.RichEmbed()
@@ -117,10 +126,13 @@ function punch(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
-				}else{
-        				sendError(message, "Commande inconnu");	
-    				}		
-			}	
+				}
+    						
+			}else{
+				sendError(message, "Commande inconnue.");	
+			}
+		}else{
+			sendError(message, "Commande inconnue.");	
 		}
 	}
 }
