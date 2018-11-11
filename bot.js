@@ -46,8 +46,7 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
-				}else{
-					sendError(message, "Commande inconnue.");	
+				
 				}else if(splitHelp[1] === "punch"){
 				var help = new Discord.RichEmbed()
 				.setTitle('Punch')
@@ -56,12 +55,11 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
-			    	}else {
-        				sendError(message, "Commande inconnue.");	
+			    	
     				}					
-		    }
-	    }else{
-		  sendError(message, "Commande inconnue.");	
+		    }else{
+				sendError(message, "Commande inconnue.");
+			    
 	    }
     }
 }
@@ -96,8 +94,6 @@ function hug(message){
 			}else{
         			sendError(message, "Commande inconnu");		
     			}	
-		}else{
-			sendError(message, "Commande inconnue.");	
 		}
 	}
 }
@@ -131,8 +127,6 @@ function punch(message){
 			}else{
 				sendError(message, "Commande inconnue.");	
 			}
-		}else{
-			sendError(message, "Commande inconnue.");	
 		}
 	}
 }
