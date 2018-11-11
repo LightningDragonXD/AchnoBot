@@ -63,7 +63,7 @@ function helpCommandes(message){
 	}
 }
 
-function funCommandes(message){
+function hug(message){
 	if(message.content[0] === prefix){
 		let splitfun = message.content.split(" ");
 		if(splitfun[0] === (prefix+"hug")){
@@ -91,7 +91,12 @@ function funCommandes(message){
 			}
 		}else{
 			sendError(message, "Commande inconnu");		
-		}
+		}	
+	}
+}
+function punch(message){
+	if(message.content[0] === prefix){
+		let splitfun = message.content.split(" ");
 		if(splitfun[0] === (prefix+"punch")){
 			 if(splitfun.length === 1){
 				 var punch = new Discord.RichEmbed()
@@ -117,14 +122,14 @@ function funCommandes(message){
 		}else{
 			sendError(message, "Commande inconnu");	
 		}
-	
 	}
 }
 
 bot.on('message', message => {
 
 	helpCommandes(message);
-	funCommandes(message);
+	hug(message);
+	punch(message);
 	
 });
 
