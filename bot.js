@@ -1,10 +1,10 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
 const prefix = "?";
-const GIF_HUG = ["https://i.imgur.com/rYrTbDQ.gif","https://i.imgur.com/8qde7Wc.gif","https://i.imgur.com/EfobnJ4.gif","https://i.imgur.com/g5qHUlx.gif","https://i.imgur.com/OjmPBRj.gif"];
-const GIF_PUNCH = ["https://i.imgur.com/oLrl3ys.gif","https://i.imgur.com/pudoR63.gif","https://i.imgur.com/1p128KA.gif","https://i.imgur.com/0h9LpJm.gif"];
-const R_HUG = Math.floor(Math.random()*GIF_HUG.length);
-const R_PUNCH = Math.floor(Math.random()*GIF_PUNCH.length);
+var GIF_HUG = ["https://i.imgur.com/rYrTbDQ.gif","https://i.imgur.com/8qde7Wc.gif","https://i.imgur.com/EfobnJ4.gif","https://i.imgur.com/g5qHUlx.gif","https://i.imgur.com/OjmPBRj.gif"];
+var GIF_PUNCH = ["https://i.imgur.com/oLrl3ys.gif","https://i.imgur.com/pudoR63.gif","https://i.imgur.com/1p128KA.gif","https://i.imgur.com/0h9LpJm.gif"];
+var R_HUG = Math.floor(Math.random()*GIF_HUG.length);
+var R_PUNCH = Math.floor(Math.random()*GIF_PUNCH.length);
 
 bot.on('ready', function(){
 	bot.user.setActivity(prefix+'help', {type: 'WATCHING'}).catch(console.error);
