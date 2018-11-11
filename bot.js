@@ -34,10 +34,9 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
-			}
 			
-		}else if(splitHelp[0] === (prefix+"help")){
-			if(splitHelp.length === 2){
+			
+			}else if(splitHelp.length === 2){
 				if(splitHelp[1] === "hug"){
 				var help = new Discord.RichEmbed()
 				.setTitle('Hug')
@@ -47,7 +46,7 @@ function helpCommandes(message){
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
 					
-			}else if(splitHelp[1] === "punch"){
+				}else if(splitHelp[1] === "punch"){
 				var help = new Discord.RichEmbed()
 				.setTitle('Punch')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
@@ -55,12 +54,12 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
-			}
-			
-		}
-	}else {
-		sendError(message, "Commande inconnue.");	
-	}
+			    }			
+		    }
+	    }else {
+		    sendError(message, "Commande inconnue.");	
+	    }
+    }
 }
 
 function hug(message){
@@ -89,9 +88,9 @@ function hug(message){
 					message.channel.sendEmbed(hug);
 			
 			}
-		}
-	}else{
-		sendError(message, "Commande inconnu");		
+		}else{
+        sendError(message, "Commande inconnu");		
+        }
 	}	
 }
 function punch(message){
@@ -120,9 +119,9 @@ function punch(message){
 					message.channel.sendEmbed(punch);
 				}
 			}	
+		}else{
+			sendError(message, "Commande inconnu");	
 		}
-	}else{
-		sendError(message, "Commande inconnu");	
 	}
 }
 
