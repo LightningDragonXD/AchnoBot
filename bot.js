@@ -34,6 +34,22 @@ function helpCommandes(message){
 				sendError(message, "Commande inconnue.");	
 			}
 		}
+		if(splitHelp[0] === (prefix+"help")){
+			if(splitHelp.length === 2){
+				if(splitHelp[1] === "hug"){
+				var help = new Discord.RichEmbed()
+				.setTitle('Hug')
+				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
+				.setDescription('Permet de faire des câlins aux gens.')
+				.addField('?hug ou ?hug @quelqu\'un')
+				.setTimestamp()
+				.setColor("#0155FE")
+				message.channel.sendEmbed(help);
+				}
+			}
+		}else {
+			sendError(message, "Commande inconnue.");	
+		}
 	}
 }
 
