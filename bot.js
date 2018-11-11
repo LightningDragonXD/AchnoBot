@@ -1,5 +1,8 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
+var ytdl = require('ytdl-core');
+const queue = new Map();
+var servers = {};
 const prefix = "?";
 
 bot.on('ready', function(){
@@ -127,12 +130,56 @@ function punch(message){
 		}
 	}
 }
+function play(connection, message){
+	var server = servers[message.guild.id];	
+	
+	server.dispatcher = connection.playStream(ytdl(server.queue[0], [filter: "audioonly"]));
+	server.queue.shift();
+	server.dispatcher.on("end", function(){
+		if(server.queue[0]) play(connection, message);
+		
+		else connection.disconnect();
+	});
+									 
+}
+function musique(message){
+	if(message.content[0] === prefix){
+		let splitmusic = message.content.split(" ");
+		if(splitmusic[0] === (prefix+"play")){
+			if(!splitmusic.length === 1){
+				message.channel.reply("il manque un lien youtube");
+			}else if(!message.member.voiceChannel){
+					message.channel.reply(":x: Tu dois être dans un salon vocal !");
+			}else if(!servers[message.guild.id]) servers[message.guild.id] = {queue: []};
+			var server = servers[message.guild.id];
+			server.queue.push(splitmusic[1]);
+			if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection){
+				play(connection, message)	
+			});
+			
+		}else if(splitmusic[0] === (prefix+"skip")){
+			 if(!message.member.voiceChannel){
+				 message.channel.reply(":x: Tu dois être dans un salon vocal");
+				 return;
+			 }
+			var server = servers[message.guild.id];
+			if(server.dispatcher) server.dispatcher.end();
+			
+		}else if(!message.member.voiceChannel){
+			 return message.channel.reply(":x: Tu dois être dans un salon vocal");
+			message.member.voiceChannel.leave();
+		}else {
+			sendError(message, "Commande inconnue.");	
+		}
+	}
+}
 
 bot.on('message', message => {
 
 	helpCommandes(message);
 	hug(message);
 	punch(message);
+	musique(message);
 	
 });
 
