@@ -42,9 +42,9 @@ bot.on('message', message => {
 	/*if(message.content === prefix+"ping"){
 		message.reply("pong");
 	}*/
-	//helpCommandes(message);
+	helpCommandes(message);
 	
-	if(message.content[0] === prefix){
+	/*if(message.content[0] === prefix){
 		let splitHelp = message.content.split(" ");
 		if(splitHelp[0] === (prefix+"help")){
 			if(splitHelp.length === 1){
@@ -62,7 +62,7 @@ bot.on('message', message => {
 		}else{
 			sendError(message, "Commande inconnue.");	
 		}
-	}
+	}*/
 });
 
 bot.login(process.env.TOKEN);
