@@ -76,15 +76,16 @@ function funCommandes(message){
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
 			}else if(splitfun.length === 2){
-				if(message.guild.member(message.mentions.users.first()){
+				if(message.guild.member(message.mentions.users.first())){
 				 var punch = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" te donne un coup ! :punch:")
+					.setDescription(message.author.toString()+" donne un coup à "+message.guild.member(message.mentions.users.first())+"! :punch:")
 					.setImage("https://i.imgur.com/1p128KA.gif")
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
+				}
 			
 			}else{
 				sendError(message, "Commande inconnu");	
