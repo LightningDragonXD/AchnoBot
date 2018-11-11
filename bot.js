@@ -61,11 +61,20 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
+					
 				}else if(splitHelp[1] === "botname"){
 				var help = new Discord.RichEmbed()
 				.setTitle('Botname')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Permet de renommer le bot.\n\n?botname nom')
+				.setTimestamp()
+				.setColor("#0155FE")
+				message.channel.sendEmbed(help);
+				}else if(splitHelp[1] === "sad"){
+				var help = new Discord.RichEmbed()
+				.setTitle('Sad')
+				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
+				.setDescription('Fait pleurer quelqu\'un.\n\n?sad @quelqu\'un')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
@@ -189,13 +198,24 @@ function sad(message){
 				if(message.guild.member(message.mentions.users.first())){
 				var sad = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a fait pleurer "+message.guild.member(message.mentions.users.first())+":cry:")
+					.setDescription(message.author.toString()+" rend triste "+message.guild.member(message.mentions.users.first())+":cry:")
 					.setImage(SAD[R_SAD])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(sad);
 				}
+			}else if(splitfun.length === 1){
+				var sad = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" est triste :cry:")
+					.setImage(SAD[R_SAD])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(sad);
+				
+			
 			}else{
 				sendError(message, "Commande inconnue.");
 			}
