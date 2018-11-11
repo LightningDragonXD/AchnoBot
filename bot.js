@@ -45,7 +45,7 @@ function funCommandes(message){
 				if(message.guild.member(message.mentions.users.first())){
 		   			var hug = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDiscription(message.author.toString()+" fait un gros câlin à "+message.guild.member(message.mentions.users.first())+" ! :flushed:")
+					.setDescription(message.author.toString()+" fait un gros câlin à "+message.guild.member(message.mentions.users.first())+" ! :flushed:")
 					.setImage("https://i.imgur.com/rYrTbDQ.gif")
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
@@ -55,7 +55,7 @@ function funCommandes(message){
 			}else*/ if(splitfun.length === 1){
 				 var hug = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDiscription("AchnoBot fait un gros câlin ! :flushed:")
+					.setDescription("AchnoBot fait un gros câlin ! :flushed:")
 					.setImage("https://i.imgur.com/rYrTbDQ.gif")
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
