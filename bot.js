@@ -1,10 +1,6 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
 const prefix = "?";
-var GIF_HUG = ["https://i.imgur.com/rYrTbDQ.gif","https://i.imgur.com/8qde7Wc.gif","https://i.imgur.com/EfobnJ4.gif","https://i.imgur.com/g5qHUlx.gif","https://i.imgur.com/OjmPBRj.gif"];
-var GIF_PUNCH = ["https://i.imgur.com/oLrl3ys.gif","https://i.imgur.com/pudoR63.gif","https://i.imgur.com/1p128KA.gif","https://i.imgur.com/0h9LpJm.gif"];
-var R_HUG = Math.floor(Math.random()*GIF_HUG.length);
-var R_PUNCH = Math.floor(Math.random()*GIF_PUNCH.length);
 
 bot.on('ready', function(){
 	bot.user.setActivity(prefix+'help', {type: 'WATCHING'}).catch(console.error);
@@ -64,6 +60,8 @@ function helpCommandes(message){
 }
 
 function hug(message){
+	var HUG = ["https://i.imgur.com/rYrTbDQ.gif","https://i.imgur.com/8qde7Wc.gif","https://i.imgur.com/EfobnJ4.gif","https://i.imgur.com/g5qHUlx.gif","https://i.imgur.com/OjmPBRj.gif"];
+	var R_HUG = Math.floor(Math.random()*GIF_HUG.length);
 	if(message.content[0] === prefix){
 		let splitfun = message.content.split(" ");
 		if(splitfun[0] === (prefix+"hug")){
@@ -72,7 +70,7 @@ function hug(message){
 		   			var hug = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription(message.author.toString()+" fait un gros câlin à "+message.guild.member(message.mentions.users.first())+" ! :flushed:")
-					.setImage(GIF_HUG[R_HUG])
+					.setImage(HUG[R_HUG])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
@@ -83,7 +81,7 @@ function hug(message){
 				 var hug = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription("AchnoBot fait un gros câlin ! :flushed:")
-					.setImage(GIF_HUG[R_HUG])
+					.setImage(HUG[R_HUG])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
@@ -96,6 +94,8 @@ function hug(message){
 	}
 }
 function punch(message){
+	var PUNCH = ["https://i.imgur.com/oLrl3ys.gif","https://i.imgur.com/pudoR63.gif","https://i.imgur.com/1p128KA.gif","https://i.imgur.com/0h9LpJm.gif"];
+	var R_PUNCH = Math.floor(Math.random()*GIF_PUNCH.length);
 	if(message.content[0] === prefix){
 		let splitfun = message.content.split(" ");
 		if(splitfun[0] === (prefix+"punch")){
@@ -103,7 +103,7 @@ function punch(message){
 				 var punch = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription("AchnoBot te donne un coup ! :punch:")
-					.setImage(GIF_PUNCH[R_PUNCH])
+					.setImage(PUNCH[R_PUNCH])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
@@ -114,7 +114,7 @@ function punch(message){
 				 var punch = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription(message.author.toString()+" donne un coup à "+message.guild.member(message.mentions.users.first())+"! :punch:")
-					.setImage(GIF_PUNCH[R_PUNCH])
+					.setImage(PUNCH[R_PUNCH])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
