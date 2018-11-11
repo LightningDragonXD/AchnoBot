@@ -12,7 +12,7 @@ bot.on('message', message => {
 	}*/
 	//helpCommandes(message);
 	
-	if(message.content[0] === prefix){
+	if(message.content === prefix){
 		let splitHelp = message.content.split(" ");
 		if(splitHelp[0] === (prefix+"help")){
 			if(splitHelp.length === 1){
