@@ -28,7 +28,7 @@ function helpCommandes(message){
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Pour afficher l\'aide d\'une commande particulière ajouter en plus le nom de la commande')
 				.addField('Prefix', prefix)
-				.addField('Commandes Fun','`hug`, `kiss`, `punch`')
+				.addField('Commandes Fun','`hug`, `kiss`, `punch`, `botname`')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
@@ -58,6 +58,14 @@ function helpCommandes(message){
 				.setTitle('Kiss')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Permet d\'embrasser quelqu\'un.\n\n?kiss ou ?kiss @quelqu\'un')
+				.setTimestamp()
+				.setColor("#0155FE")
+				message.channel.sendEmbed(help);
+				}else if(splitHelp[1] === "botname"){
+				var help = new Discord.RichEmbed()
+				.setTitle('Botname')
+				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
+				.setDescription('Permet de renommer le bot.\n\n?botname nom')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
