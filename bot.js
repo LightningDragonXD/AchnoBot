@@ -35,8 +35,7 @@ function helpCommandes(message){
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
 			}
-		}
-		if(splitHelp[0] === (prefix+"help")){
+		}else if(splitHelp[0] === (prefix+"help")){
 			if(splitHelp.length === 2){
 				if(splitHelp[1] === "hug"){
 				var help = new Discord.RichEmbed()
