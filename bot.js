@@ -1,6 +1,6 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-const prefix = "<A>";
+const prefix = "?";
 
 bot.on('ready', function(){
 	bot.user.setActivity(prefix+'help', {type: 'WATCHING'}).catch(console.error);
