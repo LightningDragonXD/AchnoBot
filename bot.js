@@ -41,7 +41,7 @@ function funCommandes(message){
 	if(message.content[0] === prefix){
 		let splitfun = message.content.split(" ");
 		if(splitfun[0] === (prefix+"hug")){
-			/*if(splitfun.length === 2){
+			if(splitfun.length === 2){
 				if(message.guild.member(message.mentions.users.first())){
 		   			var hug = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
@@ -52,7 +52,7 @@ function funCommandes(message){
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(hug);
 				}
-			}else*/ if(splitfun.length === 1){
+			}else if(splitfun.length === 1){
 				 var hug = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription("AchnoBot fait un gros câlin ! :flushed:")
@@ -64,6 +64,31 @@ function funCommandes(message){
 			}else{
 				sendError(message, "Commande inconnu");	
 			}
+		}
+		if(splitfun[0] === (prefix+"punch")){
+			 if(splitfun.length === 1){
+				 var punch = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription("AchnoBot te donne un coup ! :punch:")
+					.setImage("https://i.imgur.com/1p128KA.gif")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(punch);
+			}else if(splitfun.length === 2){
+				if(message.guild.member(message.mentions.users.first()){
+				 var punch = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" te donne un coup ! :punch:")
+					.setImage("https://i.imgur.com/1p128KA.gif")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(punch);
+			
+			}else{
+				sendError(message, "Commande inconnu");	
+			}	
 		}
 	}
 }
