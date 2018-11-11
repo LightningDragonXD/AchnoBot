@@ -34,7 +34,7 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
-			}
+			
 		}else if(splitHelp[0] === (prefix+"help")){
 			if(splitHelp.length === 2){
 				if(splitHelp[1] === "hug"){
@@ -56,9 +56,9 @@ function helpCommandes(message){
 				message.channel.sendEmbed(help);
 				}
 			}
-		}else {
-			sendError(message, "Commande inconnue.");	
 		}
+	}else {
+		sendError(message, "Commande inconnue.");	
 	}
 }
 
@@ -88,10 +88,10 @@ function hug(message){
 					message.channel.sendEmbed(hug);
 			
 			}
-		}else{
-			sendError(message, "Commande inconnu");		
-		}	
-	}
+		}
+	}else{
+		sendError(message, "Commande inconnu");		
+	}	
 }
 function punch(message){
 	if(message.content[0] === prefix){
@@ -106,8 +106,9 @@ function punch(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
-			}else if(splitfun.length === 2){
-				if(message.guild.member(message.mentions.users.first())){
+				 
+		}else if(splitfun.length === 2){
+			if(message.guild.member(message.mentions.users.first())){
 				 var punch = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription(message.author.toString()+" donne un coup à "+message.guild.member(message.mentions.users.first())+"! :punch:")
@@ -118,9 +119,9 @@ function punch(message){
 					message.channel.sendEmbed(punch);
 				}
 			}	
-		}else{
-			sendError(message, "Commande inconnu");	
 		}
+	}else{
+		sendError(message, "Commande inconnu");	
 	}
 }
 
