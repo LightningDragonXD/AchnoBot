@@ -1,6 +1,6 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-const prefix = "?";cacacacacacac
+const prefix = "?";
 const GIF_HUG = ["https://i.imgur.com/rYrTbDQ.gif","https://i.imgur.com/8qde7Wc.gif","https://i.imgur.com/EfobnJ4.gif","https://i.imgur.com/g5qHUlx.gif","https://i.imgur.com/OjmPBRj.gif"];
 const GIF_PUNCH = ["https://i.imgur.com/oLrl3ys.gif","https://i.imgur.com/pudoR63.gif","https://i.imgur.com/1p128KA.gif","https://i.imgur.com/0h9LpJm.gif"];
 const R_HUG = Math.floor(Math.random()*GIF_HUG.length);
@@ -87,11 +87,11 @@ function hug(message){
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(hug);
 			
-			}
+			}else{
+        			sendError(message, "Commande inconnu");		
+    			}	
 		}
-	}else{
-        sendError(message, "Commande inconnu");		
-    }	
+	}
 }
 function punch(message){
 	if(message.content[0] === prefix){
@@ -117,12 +117,12 @@ function punch(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
-				}
+				}else{
+        				sendError(message, "Commande inconnu");	
+    				}		
 			}	
 		}
-	}else{
-        sendError(message, "Commande inconnu");	
-    }
+	}
 }
 
 bot.on('message', message => {
