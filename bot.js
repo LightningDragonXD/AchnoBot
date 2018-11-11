@@ -28,6 +28,7 @@ function helpCommandes(message){
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Pour afficher l\'aide d\'une commande particulière ajouter en plus le nom de la commande')
 				.addField('Prefix', prefix)
+				.addField('Commandes Fun','`hug`, `kiss`, `punch`')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
@@ -52,7 +53,15 @@ function helpCommandes(message){
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
 			    	
-    				}					
+    				}else if(splitHelp[1] === "kiss"){
+				var help = new Discord.RichEmbed()
+				.setTitle('Kiss')
+				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
+				.setDescription('Permet d\'embrasser quelqu\'un.\n\n?kiss ou ?kiss @quelqu\'un')
+				.setTimestamp()
+				.setColor("#0155FE")
+				message.channel.sendEmbed(help);
+				}
 		    }else{
 				sendError(message, "Commande inconnue.");
             	    }
@@ -162,14 +171,49 @@ function kiss(message){
 		}
 	}
 }
-
+function sad(message){
+	var SAD = ["https://i.imgur.com/cgeN5Cu.gif","https://i.imgur.com/9GnWzJx.gif","https://i.imgur.com/tpyXSxo.gif"];
+	var R_SAD = Math.floor(Math.random()*SAD.length);
+	if(message.content[0] === prefix){
+		let splitfun = message.content.split(" ");
+		if(splitfun[0] === (prefix+"sad")){
+			if(splitfun.length === 2){
+				if(message.guild.member(message.mentions.users.first())){
+				var sad = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" a fait pleurer "+message.guild.member(message.mentions.users.first())+":cry:")
+					.setImage(SAD[R_SAD])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(sad);
+				}
+			}else{
+				sendError(message, "Commande inconnue.");
+			}
+		}
+	}
+}
+function rename(message){
+	let membre = message.guild.member(message.mentions.users.first());
+	if(message.content[0] === prefix){
+		let splitfun = message.content.split(" ");
+	 	if(splitfun[0] === (prefix+"rename")){
+			if(splitfun.length === 3){
+				if(membre){
+					membre.user.setUsername(splitfun[2]);
+				}
+			}
+  		}
+	}
+}
 bot.on('message', message => {
 
 	helpCommandes(message);
 	hug(message);
 	punch(message);
 	kiss(message);
-
+	sad(message);
 	
 });
 
