@@ -1,6 +1,6 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-const prefix = ":";
+const prefix = "<A>";
 
 bot.on('ready', function(){
 	bot.user.setActivity(prefix+'help', {type: 'WATCHING'}).catch(console.error);
@@ -71,6 +71,7 @@ function funCommandes(message){
 bot.on('message', message => {
 
 	helpCommandes(message);
+	funCommandes(message);
 	
 });
 
