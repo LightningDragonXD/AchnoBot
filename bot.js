@@ -194,15 +194,13 @@ function sad(message){
 		}
 	}
 }
-function rename(message){
-	let membre = message.guild.member(message.mentions.users.first());
+function botname(message){
+	
 	if(message.content[0] === prefix){
 		let splitfun = message.content.split(" ");
-	 	if(splitfun[0] === (prefix+"rename")){
-			if(splitfun.length === 3){
-				if(membre){
-					membre.user.setUsername(splitfun[2]);
-				}
+	 	if(splitfun[0] === (prefix+"botname")){
+			if(splitfun.length === 2){
+					bot.user.setUsername(splitfun[1]);
 			}else{
 				sendError(message, "Commande inconnue.");
 			}
@@ -216,7 +214,7 @@ bot.on('message', message => {
 	punch(message);
 	kiss(message);
 	sad(message);
-	rename(message);
+	botname(message);
 	
 });
 
