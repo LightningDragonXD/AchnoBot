@@ -11,6 +11,26 @@ bot.on('message', message => {
 		message.reply("pong");
 	}
 	helpCommandes(message);
+	
+	if(message.content[0] === prefix){
+		let splitHelp = message.content.split(" ");
+		if(splitHelp[0] === (prefix+"help")){
+			if(splitHelp.length === 1){
+				var help = new Discord.RichEmbed()
+				.setTitle('Liste des Commandes')
+				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
+				.setDescription('Pour afficher l\'aide d\'une commande particulière ajouter en plus le nom de la commande')
+				.addField('Prefix', prefix)
+				.setTimestamp()
+				.setColor("#0155FE")
+				message.channel.sendEmbed(help);
+			}else{
+				sendError(message, "Commande inconnue.");	
+			}
+		}else{
+			sendError(message, "Commande inconnue.");	
+		}
+	}
 });
 
 bot.login(process.env.TOKEN);
