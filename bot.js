@@ -56,9 +56,9 @@ function helpCommandes(message){
 				message.channel.sendEmbed(help);
 			    }			
 		    }
-	    }else {
-		    sendError(message, "Commande inconnue.");	
 	    }
+    }else {
+        sendError(message, "Commande inconnue.");	
     }
 }
 
@@ -88,10 +88,10 @@ function hug(message){
 					message.channel.sendEmbed(hug);
 			
 			}
-		}else{
+		}
+	}else{
         sendError(message, "Commande inconnu");		
-        }
-	}	
+    }	
 }
 function punch(message){
 	if(message.content[0] === prefix){
@@ -119,10 +119,10 @@ function punch(message){
 					message.channel.sendEmbed(punch);
 				}
 			}	
-		}else{
-			sendError(message, "Commande inconnu");	
 		}
-	}
+	}else{
+        sendError(message, "Commande inconnu");	
+    }
 }
 
 bot.on('message', message => {
