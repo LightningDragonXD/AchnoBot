@@ -54,7 +54,7 @@ function helpCommandes(message){
     				}					
 		    }else{
 				sendError(message, "Commande inconnue.");
-            }
+            	    }
 	    }
     }
 }
@@ -89,7 +89,7 @@ function hug(message){
 			
 			}else{
         			sendError(message, "Commande inconnu");		
-    		}	
+    			}	
 		}
 	}
 }
