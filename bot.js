@@ -3,7 +3,7 @@ var bot = new Discord.Client();
 const prefix = "?";
 
 bot.on('ready', function(){
-	bot.user.setActivity(prefix+'help', {type: 'WATCHING'}).catch(console.error);
+	bot.user.setActivity(prefix+'help | '+bot.guilds.size()+ ' Serveurs | '+bot.users.size()+' Utilisateurs', {type: 'WATCHING'}).catch(console.error);
 });
 
 //Fonctions des commandes du bot
@@ -12,7 +12,7 @@ function sendError(message, description){
    var embed = new Discord.RichEmbed()
             .setColor("#FE0000")
             .setDescription(':x: '+ description)
-            .setFooter('Créer par AchnoBot', 'https://i.imgur.com/pjV580Z.jpg')     
+            .setFooter('Créer par AchnoBot')     
             .setTimestamp()
   message.channel.sendEmbed(embed);
 }
