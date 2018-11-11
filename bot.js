@@ -117,7 +117,7 @@ function punch(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(punch);
-				}
+				
 			}	
 		}
 	}else{
