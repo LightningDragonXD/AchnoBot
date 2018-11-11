@@ -1,6 +1,10 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
 const prefix = "?";
+const GIF_HUG = ["https://i.imgur.com/rYrTbDQ.gif","https://i.imgur.com/8qde7Wc.gif","https://i.imgur.com/EfobnJ4.gif","https://i.imgur.com/g5qHUlx.gif","https://i.imgur.com/OjmPBRj.gif"];
+const GIF_PUNCH = ["https://i.imgur.com/oLrl3ys.gif","https://i.imgur.com/pudoR63.gif","https://i.imgur.com/1p128KA.gif","https://i.imgur.com/0h9LpJm.gif"];
+const R_HUG = Math.floor(Math.random()*GIF_HUG.length);
+const R_PUNCH = Math.floor(Math.random()*GIF_PUNCH.length);
 
 bot.on('ready', function(){
 	bot.user.setActivity(prefix+'help', {type: 'WATCHING'}).catch(console.error);
@@ -68,7 +72,7 @@ function funCommandes(message){
 		   			var hug = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription(message.author.toString()+" fait un gros câlin à "+message.guild.member(message.mentions.users.first())+" ! :flushed:")
-					.setImage("https://i.imgur.com/rYrTbDQ.gif")
+					.setImage(GIF_HUG[R_HUG])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
@@ -78,7 +82,7 @@ function funCommandes(message){
 				 var hug = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription("AchnoBot fait un gros câlin ! :flushed:")
-					.setImage("https://i.imgur.com/rYrTbDQ.gif")
+					.setImage(GIF_HUG[R_HUG])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
@@ -92,7 +96,7 @@ function funCommandes(message){
 				 var punch = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription("AchnoBot te donne un coup ! :punch:")
-					.setImage("https://i.imgur.com/1p128KA.gif")
+					.setImage(GIF_PUNCH[R_PUNCH])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
@@ -102,7 +106,7 @@ function funCommandes(message){
 				 var punch = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription(message.author.toString()+" donne un coup à "+message.guild.member(message.mentions.users.first())+"! :punch:")
-					.setImage("https://i.imgur.com/1p128KA.gif")
+					.setImage(GIF_PUNCH[R_PUNCH])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
