@@ -9,11 +9,12 @@ bot.on('ready', function(){
 //Fonctions des commandes du bot
 
 function sendError(message, description){
-	var erreur = new Discord.RichEmbed()
-	.setColor("#FE0000")
-	.setDiscription(':x:'+description)
-	.setTimestamp()
-	message.channel.sendEmbed(erreur);
+   var embed = new Discord.RichEmbed()
+            .setColor("#FE0000")
+            .setDescription(':x: '+ description)
+            .setFooter('Créer par '+bot.username, 'https://i.imgur.com/pjV580Z.jpg')     
+            .setTimestamp()
+  message.channel.sendEmbed(embed);
 }
 
 function helpCommandes(message){
@@ -32,8 +33,6 @@ function helpCommandes(message){
 			}else{
 				sendError(message, "Commande inconnue.");	
 			}
-		}else{
-			sendError(message, "Commande inconnue.");	
 		}
 	}
 }
