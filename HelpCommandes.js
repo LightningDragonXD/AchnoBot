@@ -1,3 +1,4 @@
+var error = require('./sendError.js');
 function helpCommandes(message){
 	if(message.content[0] === prefix){
 		let splitHelp = message.content.split(" ");
@@ -60,7 +61,7 @@ function helpCommandes(message){
 				message.channel.sendEmbed(help);
 				}
 		    }else{
-				sendError(message, "Commande inconnue.");
+				error.sendError(message, "Commande inconnue.");
             	    }
 	    }
     }
