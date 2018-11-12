@@ -1,3 +1,4 @@
+var Discord = require('discord.js');
 function sendError(message, description){
    var embed = new Discord.RichEmbed()
             .setColor("#FE0000")
