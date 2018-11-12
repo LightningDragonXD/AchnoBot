@@ -223,7 +223,6 @@ function sad(message){
 	}
 }
 function botname(message){
-	
 	if(message.content[0] === prefix){
 		let splitfun = message.content.split(" ");
 	 	if(splitfun[0] === (prefix+"botname")){
