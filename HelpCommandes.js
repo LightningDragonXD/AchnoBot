@@ -1,5 +1,5 @@
 var Discord = require('discord.js');
-var error = require('./sendError.js');
+var error = require("./sendError.js");
 function helpCommandes(message){
 	if(message.content[0] === prefix){
 		let splitHelp = message.content.split(" ");
