@@ -1,5 +1,5 @@
 var Discord = require('discord.js');
-var helps = require('./HelpCommandes.js'); 
+var helps = require("./HelpCommandes.js"); 
 var bot = new Discord.Client();
 
 const prefix = "?";
