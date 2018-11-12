@@ -1,4 +1,4 @@
-var Discord = require('discord.js);
+var Discord = require('discord.js');
 var error = require('./sendError.js');
 function helpCommandes(message){
 	if(message.content[0] === prefix){
