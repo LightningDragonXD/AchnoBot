@@ -1,5 +1,4 @@
 var Discord = require('discord.js');
-var helps = require("./HelpCommandes.js"); 
 var bot = new Discord.Client();
 
 const prefix = "?";
@@ -19,7 +18,7 @@ function sendError(message, description){
   message.channel.sendEmbed(embed);
 }
 
-/*function helpCommandes(message){
+function helpCommandes(message){
 	if(message.content[0] === prefix){
 		let splitHelp = message.content.split(" ");
 		if(splitHelp[0] === (prefix+"help")){
@@ -85,7 +84,7 @@ function sendError(message, description){
             	    }
 	    }
     }
-}*/
+}
 
 function hug(message){
 	var HUG = ["https://i.imgur.com/rYrTbDQ.gif","https://i.imgur.com/8qde7Wc.gif","https://i.imgur.com/EfobnJ4.gif","https://i.imgur.com/g5qHUlx.gif","https://i.imgur.com/OjmPBRj.gif"];
@@ -238,8 +237,7 @@ function botname(message){
 }
 bot.on('message', message => {
 
-	hepls.helpCommandes(message);
-	//helpCommandes(message);
+	helpCommandes(message);
 	hug(message);
 	punch(message);
 	kiss(message);
