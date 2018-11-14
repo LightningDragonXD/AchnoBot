@@ -86,6 +86,14 @@ function helpCommandes(message){
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
+				}else if(splitHelp[1] === "tickle"){
+				var help = new Discord.RichEmbed()
+				.setTitle('Sad')
+				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
+				.setDescription('Fait des chatouilles à quelqu\'un.\n\n?tickle ou ?tickle @quelqu\'un')
+				.setTimestamp()
+				.setColor("#0155FE")
+				message.channel.sendEmbed(help);
 				}
 		    }else{
 				sendError(message, "Commande inconnue.");
@@ -277,6 +285,77 @@ function pat(message){
 		}
 	}
 }
+
+function tickle(message){
+	var TICKLE = ["https://i.imgur.com/Orl0n6r.gif","https://i.imgur.com/R68JMAb.gif","https://i.imgur.com/ZZuTTNX.gif"];
+	var R_TICKLE = Math.floor(Math.random()*TICKLE.length);
+	if(message.content[0] === prefix){
+		let splitfun = message.content.split(" ");
+		if(splitfun[0] === (prefix+"tickle")){
+			if(splitfun.length === 2){
+				if(message.guild.member(message.mentions.users.first())){
+				var tickle = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" fait des chatouille à "+message.guild.member(message.mentions.users.first())+":joy:")
+					.setImage(TICKLE[R_TICKLE])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(pat);
+				}
+			}else if(splitfun.length === 1){
+				var tickle = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription("AchnoBot te chatouille :joy:")
+					.setImage(TICKLE[R_TICKLE])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(tickle);
+				
+			
+			}else{
+				sendError(message, "Commande inconnue.");
+			}
+		}
+	}
+}
+
+function bloodsuck(message){
+	var BLOOD = ["https://i.imgur.com/GXtaS5q.gif","https://i.imgur.com/SD9N08s.gif","https://i.imgur.com/xTRwnJ6.gif","https://i.imgur.com/LgF2cul.gif"];
+	var R_BLOOD = Math.floor(Math.random()*BLOOD.length);
+	if(message.content[0] === prefix){
+		let splitfun = message.content.split(" ");
+		if(splitfun[0] === (prefix+"bloodsuck")){
+			if(splitfun.length === 2){
+				if(message.guild.member(message.mentions.users.first())){
+				var tickle = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" boit le sang de "+message.guild.member(message.mentions.users.first())+":smiling_imp:")
+					.setImage(BLOOD[R_BLOOD])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(pat);
+				}
+			}else if(splitfun.length === 1){
+				var tickle = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription("AchnoBot boit ton sang :smiling_imp:")
+					.setImage(BLOOD[R_BLOOD])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(tickle);
+				
+			
+			}else{
+				sendError(message, "Commande inconnue.");
+			}
+		}
+	}
+}
+
 bot.on('message', message => {
 
 	helpCommandes(message);
@@ -286,8 +365,37 @@ bot.on('message', message => {
 	sad(message);
 	botname(message);
 	pat(message);
+	tickle(message);
 	
 });
 
+bot.on('guildMemberRemove', member =>{
+
+	    var aurevoir = new Discord.RichEmbed()
+		.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+		.setDescription(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
+		.setImage("https://i.imgur.com/cMBHKyp.gif")
+		.setFooter('Créer par AchnoBot')
+		.setTimestamp()
+		.setColor("#FE9901")			
+		member.channel.sendEmbed(aurevoir);
+				
+        
+});
+
+bot.on('guildMemberAdd', member =>{
+	    var BONJOUR = ["https://i.imgur.com/H67C3jV.gif","https://i.imgur.com/6XWJUPl.gif","https://i.imgur.com/Ro6K1b7.gif","https://i.imgur.com/LgF2cul.gif"];
+	    var R_BONJOUR = Math.floor(Math.random()*BLOOD.length);
+	    var bonjour = new Discord.RichEmbed()
+		.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+		.setDescription(`La cavalerie est là ! Voilà **${member.user.username}** !`)
+		.setImage(BONJOUR[R_BONJOUR])
+		.setFooter('Créer par AchnoBot')
+		.setTimestamp()
+		.setColor("#FE9901")			
+		member.channel.sendEmbed(bonjour);
+			        
+});
+	
 bot.login(process.env.TOKEN);
 
