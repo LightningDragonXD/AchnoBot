@@ -74,7 +74,15 @@ function helpCommandes(message){
 				var help = new Discord.RichEmbed()
 				.setTitle('Sad')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
-				.setDescription('Fait pleurer quelqu\'un.\n\n?sad @quelqu\'un')
+				.setDescription('Fait pleurer quelqu\'un.\n\n?sad ou ?sad @quelqu\'un')
+				.setTimestamp()
+				.setColor("#0155FE")
+				message.channel.sendEmbed(help);
+				}else if(splitHelp[1] === "pat"){
+				var help = new Discord.RichEmbed()
+				.setTitle('Sad')
+				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
+				.setDescription('Fait une caresse sur la tête quelqu\'un.\n\n?pat ou ?pat @quelqu\'un')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
@@ -234,6 +242,41 @@ function botname(message){
   		}
 	}
 }
+
+function pat(message){
+	var PAT = ["https://i.imgur.com/O3CldWi.gif","https://i.imgur.com/JNVYPKV.gif","https://i.imgur.com/usy9J6r.gif"];
+	var R_PAT = Math.floor(Math.random()*PAT.length);
+	if(message.content[0] === prefix){
+		let splitfun = message.content.split(" ");
+		if(splitfun[0] === (prefix+"pat")){
+			if(splitfun.length === 2){
+				if(message.guild.member(message.mentions.users.first())){
+				var pat = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" caresse la tête de "+message.guild.member(message.mentions.users.first())+":blush:")
+					.setImage(PAT[R_PAT])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(pat);
+				}
+			}else if(splitfun.length === 1){
+				var pat = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription("AchnoBot te caresse la tête :blush:")
+					.setImage(PAT[R_PAT])
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(pat);
+				
+			
+			}else{
+				sendError(message, "Commande inconnue.");
+			}
+		}
+	}
+}
 bot.on('message', message => {
 
 	helpCommandes(message);
@@ -242,6 +285,7 @@ bot.on('message', message => {
 	kiss(message);
 	sad(message);
 	botname(message);
+	pat(message);
 	
 });
 
