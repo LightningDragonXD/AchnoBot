@@ -28,7 +28,7 @@ function helpCommandes(message){
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Pour afficher l\'aide d\'une commande particulière ajouter en plus le nom de la commande')
 				.addField('Prefix', prefix)
-				.addField('Commandes Fun','`hug`, `kiss`, `punch`, `botname`, `sad`')
+				.addField('Commandes Fun','`hug`, `kiss`, `punch`, `botname`, `sad`, `pat`')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
