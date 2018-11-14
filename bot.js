@@ -374,6 +374,7 @@ bot.on('message', message => {
 	botname(message);
 	pat(message);
 	tickle(message);
+	bloodsuck(message);
 	
 });
 
