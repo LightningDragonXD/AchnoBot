@@ -28,7 +28,7 @@ function helpCommandes(message){
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Pour afficher l\'aide d\'une commande particulière ajouter en plus le nom de la commande')
 				.addField('Prefix', prefix)
-				.addField('Commandes Fun','`hug`, `kiss`, `punch`, `botname`, `sad`, `pat`')
+				.addField('Commandes Fun','`hug`, `kiss`, `punch`, `botname`, `sad`, `pat`, `tickle`, `bloodsuck`')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
@@ -91,6 +91,14 @@ function helpCommandes(message){
 				.setTitle('Sad')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Fait des chatouilles à quelqu\'un.\n\n?tickle ou ?tickle @quelqu\'un')
+				.setTimestamp()
+				.setColor("#0155FE")
+				message.channel.sendEmbed(help);
+				}else if(splitHelp[1] === "bloodsuck"){
+				var help = new Discord.RichEmbed()
+				.setTitle('Sad')
+				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
+				.setDescription('Boit le sang de quelqu\'un.\n\n?bloodsuck ou ?bloodsuck @quelqu\'un')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
