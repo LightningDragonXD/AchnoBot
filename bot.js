@@ -386,7 +386,7 @@ bot.on('guildMemberRemove', member =>{
 		.setFooter('Créer par AchnoBot')
 		.setTimestamp()
 		.setColor("#FE9901")			
-		member.channel.sendEmbed(aurevoir);
+		member.guild.channels.find("name", "general").sendEmbed(aurevoir);
 				
         
 });
@@ -401,7 +401,8 @@ bot.on('guildMemberAdd', member =>{
 		.setFooter('Créer par AchnoBot')
 		.setTimestamp()
 		.setColor("#FE9901")			
-		member.channel.sendEmbed(bonjour);
+		member.guild.channels.find("name", "general").sendEmbed(bonjour);
+	
 			        
 });
 	
