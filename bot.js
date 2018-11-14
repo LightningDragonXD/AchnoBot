@@ -378,31 +378,15 @@ bot.on('message', message => {
 });
 
 bot.on('guildMemberRemove', member =>{
-
-	    var aurevoir = new Discord.RichEmbed()
-		.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-		.setDescription(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
-		.setImage("https://i.imgur.com/cMBHKyp.gif")
-		.setFooter('Créer par AchnoBot')
-		.setTimestamp()
-		.setColor("#FE9901")			
-		member.guild.channels.find("name", "general").sendEmbed(aurevoir);
-				
-        
+	 member.guild.channels.find("name", "general").send(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
+	member.guild.channels.find("name", "general").sendFile("https://i.imgur.com/cMBHKyp.gif")			   
 });
 
 bot.on('guildMemberAdd', member =>{
-	    var BONJOUR = ["https://i.imgur.com/H67C3jV.gif","https://i.imgur.com/6XWJUPl.gif","https://i.imgur.com/Ro6K1b7.gif","https://i.imgur.com/LgF2cul.gif"];
-	    var R_BONJOUR = Math.floor(Math.random()*BLOOD.length);
-	    var bonjour = new Discord.RichEmbed()
-		.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-		.setDescription(`La cavalerie est là ! Voilà **${member.user.username}** !`)
-		.setImage(BONJOUR[R_BONJOUR])
-		.setFooter('Créer par AchnoBot')
-		.setTimestamp()
-		.setColor("#FE9901")			
-		member.guild.channels.find("name", "general").sendEmbed(bonjour);
-	
+	var BONJOUR = ["https://i.imgur.com/H67C3jV.gif","https://i.imgur.com/6XWJUPl.gif","https://i.imgur.com/Ro6K1b7.gif","https://i.imgur.com/Khl3DLb.gif"];
+	var R_BONJOUR = Math.floor(Math.random()*BONJOUR.length);
+	 member.guild.channels.find("name", "general").send(`La cavalerie est là ! Voilà **${member.user.username}** !`)
+	 member.guild.channels.find("name", "general").sendFile(BONJOUR[R_BONJOUR])
 			        
 });
 	
