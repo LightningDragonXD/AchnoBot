@@ -379,15 +379,15 @@ bot.on('message', message => {
 });
 
 bot.on('guildMemberRemove', member =>{
-	 member.guild.channels.find("name", "général").send(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
-	member.guild.channels.find("name", "général").sendFile("https://i.imgur.com/cMBHKyp.gif")			   
+	 member.guild.channels.find("name", "bienvenu-adieu").send(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
+	member.guild.channels.find("name", "bienvenu-adieu").sendFile("https://i.imgur.com/cMBHKyp.gif")			   
 });
 
 bot.on('guildMemberAdd', member =>{
 	var BONJOUR = ["https://i.imgur.com/H67C3jV.gif","https://i.imgur.com/6XWJUPl.gif","https://i.imgur.com/Ro6K1b7.gif","https://i.imgur.com/Khl3DLb.gif"];
 	var R_BONJOUR = Math.floor(Math.random()*BONJOUR.length);
 	 member.guild.channels.find("name", "général").send(`La cavalerie est là ! Voilà **${member.user.username}** !`)
-	 member.guild.channels.find("name", "général").sendFile(BONJOUR[R_BONJOUR])
+	 member.guild.channels.find("name", "bienvenu-adieu").sendFile(BONJOUR[R_BONJOUR])
 			        
 });
 	
