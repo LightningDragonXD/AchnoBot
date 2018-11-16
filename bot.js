@@ -337,24 +337,24 @@ function bloodsuck(message){
 		if(splitfun[0] === (prefix+"bloodsuck")){
 			if(splitfun.length === 2){
 				if(message.guild.member(message.mentions.users.first())){
-				var tickle = new Discord.RichEmbed()
+				var blood = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription(message.author.toString()+" boit le sang de "+message.guild.member(message.mentions.users.first())+":smiling_imp:")
 					.setImage(BLOOD[R_BLOOD])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
-					message.channel.sendEmbed(pat);
+					message.channel.sendEmbed(blood);
 				}
 			}else if(splitfun.length === 1){
-				var tickle = new Discord.RichEmbed()
+				var blood = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription("AchnoBot boit ton sang :smiling_imp:")
 					.setImage(BLOOD[R_BLOOD])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
-					message.channel.sendEmbed(tickle);
+					message.channel.sendEmbed(blood);
 				
 			
 			}else{
