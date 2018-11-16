@@ -309,7 +309,7 @@ function tickle(message){
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
-					message.channel.sendEmbed(pat);
+					message.channel.sendEmbed(tickle);
 				}
 			}else if(splitfun.length === 1){
 				var tickle = new Discord.RichEmbed()
