@@ -28,7 +28,7 @@ function helpCommandes(message){
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Pour afficher l\'aide d\'une commande particulière ajouter en plus le nom de la commande')
 				.addField('Prefix', prefix)
-				.addField('Commandes Fun','`hug`, `kiss`, `punch`, `botname`, `sad`, `pat`, `tickle`, `bloodsuck`')
+				.addField('Commandes Fun','`hug`, `kiss`, `punch`, `botname`, `sad`, `pat`, `tickle`, `bloodsuck`, `roll`')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
@@ -80,7 +80,7 @@ function helpCommandes(message){
 				message.channel.sendEmbed(help);
 				}else if(splitHelp[1] === "pat"){
 				var help = new Discord.RichEmbed()
-				.setTitle('Sad')
+				.setTitle('Pat')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Fait une caresse sur la tête quelqu\'un.\n\n?pat ou ?pat @quelqu\'un')
 				.setTimestamp()
@@ -88,7 +88,7 @@ function helpCommandes(message){
 				message.channel.sendEmbed(help);
 				}else if(splitHelp[1] === "tickle"){
 				var help = new Discord.RichEmbed()
-				.setTitle('Sad')
+				.setTitle('Tickle')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Fait des chatouilles à quelqu\'un.\n\n?tickle ou ?tickle @quelqu\'un')
 				.setTimestamp()
@@ -96,9 +96,17 @@ function helpCommandes(message){
 				message.channel.sendEmbed(help);
 				}else if(splitHelp[1] === "bloodsuck"){
 				var help = new Discord.RichEmbed()
-				.setTitle('Sad')
+				.setTitle('bloodsuck')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
 				.setDescription('Boit le sang de quelqu\'un.\n\n?bloodsuck ou ?bloodsuck @quelqu\'un')
+				.setTimestamp()
+				.setColor("#0155FE")
+				message.channel.sendEmbed(help);
+				}else if(splitHelp[1] === "roll"){
+				var help = new Discord.RichEmbed()
+				.setTitle('Roll')
+				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
+				.setDescription('Permet de lancer des dés.\n\n?roll ou ?roll nombre')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
@@ -363,6 +371,36 @@ function bloodsuck(message){
 		}
 	}
 }
+function rolldice(message){
+	if(message.content[0] === prefix){
+		let splitrolldice = message.content.split(" ");
+		if(splitrolldice[0] === (prefix+"roll")){
+			if(splitrolldice.length === 1){
+				var roll = Math.floor(Math.random()*100)+1;
+				var embed = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+"**")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(embed);
+				   
+				
+			}else if(splitrolldice.length === 2){
+				var roll = Math.floor(Math.random()*splitrolldice[1])+1;
+				var embed = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+"**")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(embed);
+			}else{
+				sendError(message, "Commande inconnue.");
+			}
+		}
+	}
+}
 
 bot.on('message', message => {
 
@@ -375,6 +413,7 @@ bot.on('message', message => {
 	pat(message);
 	tickle(message);
 	bloodsuck(message);
+	rolldice(message);
 	
 });
 
