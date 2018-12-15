@@ -484,16 +484,25 @@ bot.on('message', message => {
 });
 
 bot.on('guildMemberRemove', member =>{
-	 member.guild.channels.find("name", "général").send(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
-	member.guild.channels.find("name", "général").sendFile("https://i.imgur.com/cMBHKyp.gif")			   
+	if(member.guild.channels.find("name", "général")){
+	member.guild.channels.find("name", "général").send(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
+	member.guild.channels.find("name", "général").sendFile("https://i.imgur.com/cMBHKyp.gif")
+	}else if(member.guild.channels.find("name", "arrivé-départ")){
+	member.guild.channels.find("name", "arrivé-départ").send(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
+	member.guild.channels.find("name", "arrivé-départ").sendFile("https://i.imgur.com/cMBHKyp.gif")
+	}
 });
 
 bot.on('guildMemberAdd', member =>{
 	var BONJOUR = ["https://i.imgur.com/H67C3jV.gif","https://i.imgur.com/6XWJUPl.gif","https://i.imgur.com/Ro6K1b7.gif","https://i.imgur.com/Khl3DLb.gif"];
 	var R_BONJOUR = Math.floor(Math.random()*BONJOUR.length);
+	if(member.guild.channels.find("name", "général")){
 	 member.guild.channels.find("name", "général").send(`La cavalerie est là ! Voilà **${member.user.username}** !`)
 	 member.guild.channels.find("name", "général").sendFile(BONJOUR[R_BONJOUR])
-			        
+	}else if(member.guild.channels.find("name", "arrivé-départ")){
+	member.guild.channels.find("name", "arrivé-départ").send(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
+	member.guild.channels.find("name", "arrivé-départ").sendFile("https://i.imgur.com/cMBHKyp.gif")
+	}	        
 });
 	
 bot.login(process.env.TOKEN);
