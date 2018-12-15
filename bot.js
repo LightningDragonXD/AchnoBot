@@ -377,6 +377,31 @@ function rolldice(message){
 		if(splitrolldice[0] === (prefix+"roll")){
 			if(splitrolldice.length === 1){
 				var roll = Math.floor(Math.random()*100)+1;
+				if(roll <= 5){
+					var embed = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" ECHEC CRITIQUE !**")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(embed);
+				}else if(roll >= 95){
+					 var embed = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" REUSSITE CRITIQUE !**")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(embed);
+				}else{
+					 var embed = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+"**")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(embed);
+				}
 				var embed = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+"**")
@@ -391,7 +416,7 @@ function rolldice(message){
 				if(roll <= 5){
 					var embed = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" REUSSITE CRITIQUE !**")
+					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" ECHEC CRITIQUE !**")
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
@@ -399,7 +424,7 @@ function rolldice(message){
 				}else if(roll >= (splitrolldice[1]-5)){
 					 var embed = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" ECHEC CRITIQUE !**")
+					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" REUSSITE CRITIQUE !**")
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
@@ -420,7 +445,7 @@ function rolldice(message){
 					if(roll <= 5){
 					var embed = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" REUSSITE CRITIQUE !**")
+					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" ECHEC CRITIQUE !**")
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
@@ -428,7 +453,7 @@ function rolldice(message){
 					}else if(roll >= (splitrolldice[2]-5)){
 					 var embed = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" ECHEC CRITIQUE !**")
+					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" REUSSITE CRITIQUE !**")
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
 					.setColor("#FE9901")			
