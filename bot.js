@@ -402,14 +402,6 @@ function rolldice(message){
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(embed);
 				}
-				var embed = new Discord.RichEmbed()
-					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+"**")
-					.setFooter('Créer par AchnoBot')
-					.setTimestamp()
-					.setColor("#FE9901")			
-					message.channel.sendEmbed(embed);
-				   
 				
 			}else if(splitrolldice.length === 2){
 				var roll = Math.floor(Math.random()*splitrolldice[1])+1;
