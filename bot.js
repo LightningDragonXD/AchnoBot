@@ -106,7 +106,7 @@ function helpCommandes(message){
 				var help = new Discord.RichEmbed()
 				.setTitle('Roll')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
-				.setDescription('Permet de lancer des dés.\n\n?roll ou ?roll nombre')
+				.setDescription('Permet de lancer des dés.\n\n?roll ou ?roll nombre ou ?roll nbdé nombre')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
