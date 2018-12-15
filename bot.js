@@ -466,8 +466,8 @@ bot.on('guildMemberAdd', member =>{
 	 member.guild.channels.find("name", "general").send(`La cavalerie est là ! Voilà **${member.user.username}** !`)
 	 member.guild.channels.find("name", "general").sendFile(BONJOUR[R_BONJOUR])
 	}else if(member.guild.channels.find("name", "arrivé-départ")){
-	member.guild.channels.find("name", "arrivé-départ").send(`**${member.user.username}** est partie du serveur. Au plaisir de te revoir !`)
-	member.guild.channels.find("name", "arrivé-départ").sendFile("https://i.imgur.com/cMBHKyp.gif")
+	 member.guild.channels.find("name", "arrivé-départ").send(`La cavalerie est là ! Voilà **${member.user.username}** !`)
+	 member.guild.channels.find("name", "arrivé-départ").sendFile(BONJOUR[R_BONJOUR])
 	}	        
 });
 	
