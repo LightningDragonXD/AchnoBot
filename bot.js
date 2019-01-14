@@ -106,7 +106,7 @@ function helpCommandes(message){
 				var help = new Discord.RichEmbed()
 				.setTitle('Roll')
 				.setAuthor('AchnoBot',"https://i.imgur.com/pjV580Z.jpg")
-				.setDescription('Permet de lancer des dés.\n\n?roll ou ?roll nombre ou ?roll nbdé nombre')
+				.setDescription('Permet de lancer des dés.\n\n?roll ou ?roll 1d100')
 				.setTimestamp()
 				.setColor("#0155FE")
 				message.channel.sendEmbed(help);
@@ -424,70 +424,6 @@ function rolldice(message){
 	}
 }
 
-function roll1(message){
-	if(message.content[0] === prefix){
-		let splitrolldice = message.content.split(" ");
-		if(splitrolldice[0] === (prefix+"roll1")){
-			if(splitrolldice.length === 1){
-				var roll = Math.floor(Math.random()*100)+1;
-				if(roll <= 5){
-					var embed = new Discord.RichEmbed()
-					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" ECHEC CRITIQUE !**")
-					.setFooter('Créer par AchnoBot')
-					.setTimestamp()
-					.setColor("#FE9901")			
-					message.channel.sendEmbed(embed);
-				}else if(roll >= 95){
-					 var embed = new Discord.RichEmbed()
-					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+" REUSSITE CRITIQUE !**")
-					.setFooter('Créer par AchnoBot')
-					.setTimestamp()
-					.setColor("#FE9901")			
-					message.channel.sendEmbed(embed);
-				}else{
-					 var embed = new Discord.RichEmbed()
-					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+"**")
-					.setFooter('Créer par AchnoBot')
-					.setTimestamp()
-					.setColor("#FE9901")			
-					message.channel.sendEmbed(embed);
-				}
-				
-			}else if(splitrolldice.length === 2){
-				var r1 = splitrolldice[1].split("d");
-				var roll = Math.floor(Math.random()*r1[1])+1;
-					 var embed = new Discord.RichEmbed()
-					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+"**")
-					.setFooter('Créer par AchnoBot')
-					.setTimestamp()
-					.setColor("#FE9901")			
-					message.channel.sendEmbed(embed);
-				
-				
-			}else if(splitrolldice.length === 3){
-				for(var nbde=0; nbde < splitrolldice[1]; nbde++){
-					var roll = Math.floor(Math.random()*splitrolldice[2])+1;
-					 var embed = new Discord.RichEmbed()
-					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" a lancé un dé et a fait: **"+roll+"**")
-					.setFooter('Créer par AchnoBot')
-					.setTimestamp()
-					.setColor("#FE9901")			
-					message.channel.sendEmbed(embed);
-					
-					
-				}
-			}else{
-				sendError(message, "Commande inconnue.");
-			}
-		}
-	}
-}
-
 bot.on('message', message => {
 
 	helpCommandes(message);
@@ -500,7 +436,7 @@ bot.on('message', message => {
 	tickle(message);
 	bloodsuck(message);
 	rolldice(message);
-	roll1(message);
+	
 	
 });
 
