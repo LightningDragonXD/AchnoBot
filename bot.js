@@ -417,7 +417,7 @@ function rolldice(message){
 						message.channel.sendEmbed(embed);
 					}
 				}else{
-					sendError(message, "Commande incorrecte.");
+					sendError(message, "Commande incorrecte. Faites ?roll 1d100");
 				}
 				
 				
