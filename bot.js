@@ -4,7 +4,7 @@ var bot = new Discord.Client();
 const prefix = "?";
 
 bot.on('ready', function(){
-	bot.user.setActivity(prefix+'help,'+bot.guilds.size+' serveurs, {type: 'WATCHING'}).catch(console.error);
+	bot.user.setActivity(prefix+'help,'+bot.guilds.size+' serveurs', {type: 'WATCHING'}).catch(console.error);
 });
 
 //Fonctions des commandes du bot
