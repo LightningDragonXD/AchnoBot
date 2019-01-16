@@ -9,10 +9,9 @@
   "author": "Goku",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.4.2",
-    "winston": "^3.1.0",
+    "discord.io": "^2.5.3",
     "ffmpeg-binaries": "file:node_modules/ffmpeg-binaries",
     "opusscript": "0.0.6",
-    "ytdl-core": "^0.28.0"
+    "winston": "^3.1.0"
   }
 }
