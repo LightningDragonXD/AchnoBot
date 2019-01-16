@@ -1,6 +1,6 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-
+var dispatcher;
 const prefix = "?";
 
 bot.on('ready', function(){
@@ -427,7 +427,70 @@ function rolldice(message){
 		}
 	}
 }
-
+function play(message){
+	if(message.content[0] === prefix){
+		let splitplay = message.content.split(" ");
+		if(splitplay[0] === (prefix+"play")){
+			if(splitplay.length === 2){
+				if(message.member.voiceChannel){
+					message.member.voiceChannel.join().then(connection => {
+						dispatcher = connection.playArbitraryInput(splitplay[1]);
+						dispatcher.on('error', e => {
+							console.log(e);
+						});
+						dispatcher.on('end', e => {
+							dispatcher = undefined;
+							console.log('Fin du son');
+						});
+					}).catch(console.log);	
+				}else {
+					sendError(message, "Vous devez d'abord rejoindre un channel vocal.");
+				}
+				
+			}else {
+				sendError(message, "Commande incorrecte.");
+			}
+		   
+		}else {
+			sendError(message, "Commande inconnue.");	
+		}
+	}
+}
+function pause(message){
+	if(message.content[0] === prefix){
+		let splitplay = message.content.split(" ");
+		if(splitplay[0] === (prefix+"pause")){
+			if(splitplay.length === 2){
+				if(dispatcher !== undefined){
+					dispatcher.pause();	
+				}
+				
+			}else {
+				sendError(message, "Commande incorrecte.");
+			}
+		   
+		}else {
+			sendError(message, "Commande inconnue.");	
+		}
+	}
+}
+function resume(message){
+	if(message.content[0] === prefix){
+		let splitplay = message.content.split(" ");
+		if(splitplay[0] === (prefix+"resume")){
+			if(splitplay.length === 2){
+				if(dispatcher !== undefined){
+					dispatcher.resume();	
+				}
+				
+			}else {
+				sendError(message, "Commande incorrecte.");
+			}
+		   
+		}else {
+			sendError(message, "Commande inconnue.");	
+		}
+	}
 bot.on('message', message => {
 
 	helpCommandes(message);
@@ -440,6 +503,9 @@ bot.on('message', message => {
 	tickle(message);
 	bloodsuck(message);
 	rolldice(message);
+	play(message);
+	pause(message);
+	resume(message);
 	
 	
 });
