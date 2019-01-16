@@ -8,9 +8,6 @@
   },
   "author": "Goku",
   "license": "ISC",
-  "engines":{
-    "node:": "10.x"
-  },
   "dependencies": {
     "discord.js": "^11.4.2",
     "ffmpeg-binaries": "file:node_modules/ffmpeg-binaries",
