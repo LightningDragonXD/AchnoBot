@@ -206,7 +206,7 @@ function kiss(message){
 				if(message.guild.member(message.mentions.users.first())){
 				 var kiss = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" embrassse "+message.guild.member(message.mentions.users.first())+" :kissing_heart:")
+					.setDescription(message.author.toString()+" embrasse "+message.guild.member(message.mentions.users.first())+" :kissing_heart:")
 					.setImage(KISS[R_KISS])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
@@ -312,7 +312,7 @@ function tickle(message){
 				if(message.guild.member(message.mentions.users.first())){
 				var tickle = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
-					.setDescription(message.author.toString()+" fait des chatouille à "+message.guild.member(message.mentions.users.first())+":joy:")
+					.setDescription(message.author.toString()+" fait des chatouilles à "+message.guild.member(message.mentions.users.first())+":joy:")
 					.setImage(TICKLE[R_TICKLE])
 					.setFooter('Créer par AchnoBot')
 					.setTimestamp()
