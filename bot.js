@@ -460,6 +460,27 @@ function join(message){
 	}
 }
 
+function disconnect(message){
+	if(message.content[0] === prefix){
+		let splitquit = message.content.split(" ");
+		if(splitquit[0] === (prefix+"quit")){
+			if(splitquit.length === 1){
+					message.member.voiceChannel.disconnect();
+					var quit = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription("AchnoBot a bien quitté le channel !")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(quit);
+					
+			}else{
+				sendError(message, "Commande inconnue.");
+			}
+		}
+	}
+}
+
 bot.on('message', message => {
 
 	helpCommandes(message);
@@ -473,7 +494,7 @@ bot.on('message', message => {
 	bloodsuck(message);
 	rolldice(message);
 	join(message);
-	
+	disconnect(message);
 });
 
 bot.on('guildMemberRemove', member =>{
