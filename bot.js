@@ -473,9 +473,6 @@ function quit(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(quit);
-					
-				}
-					
 			}else{
 				sendError(message, "Commande inconnue.");
 			}
