@@ -465,6 +465,7 @@ function disconnect(message){
 		let splitquit = message.content.split(" ");
 		if(splitquit[0] === (prefix+"quit")){
 			if(splitquit.length === 1){
+				if(message.member.voiceChannel){
 					message.member.voiceChannel.disconnect();
 					var quit = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
@@ -473,6 +474,7 @@ function disconnect(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(quit);
+				}
 					
 			}else{
 				sendError(message, "Commande inconnue.");
