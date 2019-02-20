@@ -484,7 +484,7 @@ function quit(message){
 	}
 }
 
-function play(message){
+function jouer(message){
 	if(message.content[0] === prefix){
 		let splitjoin = message.content.split(" ");
 		if(splitjoin[0] === (prefix+"play")){
@@ -525,7 +525,7 @@ bot.on('message', message => {
 	rolldice(message);
 	join(message);
 	quit(message);
-	play(message);
+	jouer(message);
 });
 
 bot.on('guildMemberRemove', member =>{
