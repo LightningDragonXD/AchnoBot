@@ -1,8 +1,5 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-const ytdl = require('ytdl-core');
-const streamOptions = {seek: 0, volume: 1};
-
 const prefix = "?";
 
 bot.on('ready', function(){
