@@ -460,13 +460,12 @@ function join(message){
 	}
 }
 
-function disconnect(message){
+function quit(message){
 	if(message.content[0] === prefix){
 		let splitquit = message.content.split(" ");
 		if(splitquit[0] === (prefix+"quit")){
 			if(splitquit.length === 1){
-				if(message.member.voiceChannel){
-					message.member.voiceChannel.disconnect();
+				voiceChannel.leave();
 					var quit = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription("AchnoBot a bien quitté le channel !")
@@ -474,6 +473,7 @@ function disconnect(message){
 					.setTimestamp()
 					.setColor("#FE9901")			
 					message.channel.sendEmbed(quit);
+					
 				}
 					
 			}else{
@@ -496,7 +496,7 @@ bot.on('message', message => {
 	bloodsuck(message);
 	rolldice(message);
 	join(message);
-	disconnect(message);
+	quit(message);
 });
 
 bot.on('guildMemberRemove', member =>{
