@@ -428,6 +428,38 @@ function rolldice(message){
 	}
 }
 
+function join(message){
+	if(message.content[0] === prefix){
+		let splitjoin = message.content.split(" ");
+		if(splitjoin[0] === (prefix+"join")){
+			if(splitjoin.length === 1){
+				if(message.member.voiceChannel){
+					message.member.voiceChannel.join().then(connection => {
+					var join = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription("AchnoBot a bien rejoint le channel !")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE9901")			
+					message.channel.sendEmbed(join);
+					});
+				}else{
+					var join = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription("Vous devez être connecté à un channel !")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE0000")			
+					message.channel.sendEmbed(join);
+				}
+			
+			}else{
+				sendError(message, "Commande inconnue.");
+			}
+		}
+	}
+}
+
 bot.on('message', message => {
 
 	helpCommandes(message);
@@ -440,6 +472,7 @@ bot.on('message', message => {
 	tickle(message);
 	bloodsuck(message);
 	rolldice(message);
+	join(message);
 	
 });
 
