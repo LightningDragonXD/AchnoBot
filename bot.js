@@ -1,6 +1,8 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-var dispatcher;
+const ytdl = require('ytdl-core');
+const streamOptions = {seek: 0, volume: 1};
+
 const prefix = "?";
 
 bot.on('ready', function(){
@@ -482,6 +484,33 @@ function quit(message){
 	}
 }
 
+function play(message){
+	if(message.content[0] === prefix){
+		let splitjoin = message.content.split(" ");
+		if(splitjoin[0] === (prefix+"play")){
+			if(splitjoin.length === 1){
+				if(message.member.voiceChannel){
+					message.member.voiceChannel.join().then(connection => {
+					const stream = ytdl('https://www.youtube.com/watch?v=c1kNwDfBrLY', {filter : 'audioonly'});
+					const dispatcher = connection.playStream(stream, streamOptions);
+					});
+				}else{
+					var join = new Discord.RichEmbed()
+					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
+					.setDescription("Vous devez être connecté à un channel !")
+					.setFooter('Créer par AchnoBot')
+					.setTimestamp()
+					.setColor("#FE0000")			
+					message.channel.sendEmbed(join);
+				}
+			
+			}else{
+				sendError(message, "Commande inconnue.");
+			}
+		}
+	}
+}
+
 bot.on('message', message => {
 
 	helpCommandes(message);
@@ -496,6 +525,7 @@ bot.on('message', message => {
 	rolldice(message);
 	join(message);
 	quit(message);
+	play(message);
 });
 
 bot.on('guildMemberRemove', member =>{
