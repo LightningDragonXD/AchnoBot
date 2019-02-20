@@ -465,7 +465,7 @@ function quit(message){
 		let splitquit = message.content.split(" ");
 		if(splitquit[0] === (prefix+"quit")){
 			if(splitquit.length === 1){
-				voiceChannel.leave();
+				message.member.voiceChannel.leave();
 					var quit = new Discord.RichEmbed()
 					.setAuthor('AchnoBot', "https://i.imgur.com/pjV580Z.jpg")
 					.setDescription("AchnoBot a bien quitté le channel !")
