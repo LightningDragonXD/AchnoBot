@@ -1,18 +1,19 @@
 {
-  "name": "botdiscord",
+  "name": "achnobot",
   "version": "1.0.0",
-  "description": "Bot Discord du nom de AchnoBot",
-  "main": "bot.js",
+  "description": "Bot Discord FR",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Goku",
+  "author": "Ryukai",
   "license": "ISC",
   "dependencies": {
+    "bufferutil": "^4.0.1",
     "discord.js": "^11.4.2",
-    "ffmpeg": "0.0.4",
-    "ffmpeg-binaries": "^4.0.0",
     "opusscript": "0.0.6",
-    "winston": "^3.1.0"
+    "simple-youtube-api": "^5.1.1",
+    "uws": "^99.0.0",
+    "ytdl-core": "^0.29.1"
   }
 }
