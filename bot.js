@@ -1,7 +1,7 @@
 var Discord = require('discord.js');
 var bot = new Discord.Client();
-var config = require('./auth.json');
-const ytdl = require('ytdl-core');
+//var config = require('./auth.json');
+//const ytdl = require('ytdl-core');
 const help = require('./helpCommands');
 const hug = require('./hug');
 const punch = require('./punch');
@@ -24,7 +24,7 @@ bot.on('ready', function(){
 	bot.user.setActivity(prefix+'help | '+bot.guilds.size+' serveurs', {type: 'WATCHING'}).catch(console.error);
 });
 
-async function musique(message){
+/*async function musique(message){
 	if(message.content[0] === prefix){
 		let splitmusique = message.content.split(' ');
 		if(splitmusique[0] === (prefix+"play")){
@@ -76,11 +76,11 @@ async function musique(message){
 					dispatcher.setVolumeLogarithmic(5 / 5);
 		}
 	}
-}
+}*/
 
 
 
-bot.on('message', async message => {
+bot.on('message', message => {
 
 	help(message);
 	hug(message);
